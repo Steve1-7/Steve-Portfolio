@@ -153,9 +153,12 @@ export default function Portfolio() {
             </div>
             <div>
               <h3 className="text-3xl font-bold mb-6">
-                I build things for the{" "}
-                <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">web.</span>
-              </h3>
+  I build things for the{" "}
+  <span className="inline-block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+    web.
+  </span>
+</h3>
+
               <div className="space-y-4 text-slate-400 text-lg leading-relaxed">
                 <p>I&apos;m a passionate full-stack developer with a focus on building modern, responsive web applications that drive real business results. I specialize in crafting seamless digital experiences from concept to deployment.</p>
                 <p>With deep expertise in both frontend and backend technologies, I&apos;ve successfully delivered e-commerce platforms, corporate websites, and developer tools for clients across various industries.</p>
