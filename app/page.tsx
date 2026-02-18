@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("about");
@@ -114,9 +115,11 @@ export default function Portfolio() {
               />
               <div className="absolute w-56 h-56 rounded-full bg-cyan-500/10 blur-md" />
               <div className="relative w-52 h-52 rounded-full overflow-hidden border-4 border-cyan-400 shadow-[0_0_40px_rgba(56,189,248,0.5)] z-10">
-                <img
+                <Image
                   src="https://i.ibb.co/5gRLQG7C/Whats-App-Image-2025-01-08-at-10-16-10-0b7c5513.jpg"
                   alt="Steve Ronald"
+                  width={208}
+                  height={208}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -178,9 +181,11 @@ export default function Portfolio() {
                 <div className="absolute w-64 h-64 rounded-full border-2 border-dashed border-cyan-400/50 animate-spin" style={{ animationDuration: "12s" }} />
                 <div className="absolute w-56 h-56 rounded-full bg-cyan-500/10 blur-md" />
                 <div className="relative w-52 h-52 rounded-full overflow-hidden border-4 border-cyan-400 shadow-[0_0_40px_rgba(56,189,248,0.5)] z-10">
-                  <img
-                    src="https://i.ibb.co/1GVHNhmj/hyb.jpg"
+                  <Image
+                    src="https://i.ibb.co/5gRLQG7C/Whats-App-Image-2025-01-08-at-10-16-10-0b7c5513.jpg"
                     alt="Steve Ronald"
+                    width={208}
+                    height={208}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -213,9 +218,9 @@ export default function Portfolio() {
                 <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">web.</span>
               </h3>
               <div className="space-y-4 text-slate-400 text-lg leading-relaxed">
-                <p>I'm a passionate full-stack developer with a focus on building modern, responsive web applications that drive real business results. I specialize in crafting seamless digital experiences from concept to deployment.</p>
-                <p>With deep expertise in both frontend and backend technologies, I've successfully delivered e-commerce platforms, corporate websites, and developer tools for clients across various industries.</p>
-                <p>When I'm not coding, I'm constantly learning new technologies and pushing the boundaries of what's possible on the web.</p>
+                <p>I&apos;m a passionate full-stack developer with a focus on building modern, responsive web applications that drive real business results. I specialize in crafting seamless digital experiences from concept to deployment.</p>
+                <p>With deep expertise in both frontend and backend technologies, I&apos;ve successfully delivered e-commerce platforms, corporate websites, and developer tools for clients across various industries.</p>
+                <p>When I&apos;m not coding, I&apos;m constantly learning new technologies and pushing the boundaries of what&apos;s possible on the web.</p>
               </div>
               <div className="flex gap-4 mt-8">
                 <a href="mailto:stevezuluu@gmail.com" className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-semibold text-sm hover:shadow-lg hover:shadow-cyan-500/30 transition-all">Hire Me</a>
@@ -267,7 +272,7 @@ export default function Portfolio() {
               </div>
               <div className="relative z-10 p-8">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-2xl font-bold">King's Barbershop</h3>
+                  <h3 className="text-2xl font-bold">King&apos;s Barbershop</h3>
                   <div className="flex items-center gap-1.5 px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full">
                     <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                     <span className="text-green-400 text-xs font-medium">Live</span>
@@ -595,7 +600,7 @@ export default function Portfolio() {
       <section id="contact" className="py-28 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">Get In Touch</p>
-          <h2 className="text-5xl font-bold mb-6">Let's Work Together</h2>
+          <h2 className="text-5xl font-bold mb-6">Let&apos;s Work Together</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full mb-8" />
           <p className="text-xl text-slate-400 mb-10">
             Have a project in mind? I'd love to hear about it. Drop me a line and let's create something amazing together.
@@ -838,6 +843,7 @@ function Gallery() {
             
             {/* Images */}
             <div className="relative w-full h-full">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               {currentGallery.map((image, index) => (
                 <div
                   key={index}
@@ -895,6 +901,7 @@ function Gallery() {
           {/* Thumbnail Strip */}
           <div className="mt-6 relative">
             <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               {currentGallery.map((image, index) => (
                 <button
                   key={index}
@@ -1076,9 +1083,9 @@ function CoreStrengths() {
       <div className="mt-10 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 border border-slate-700 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <h4 className="text-2xl font-bold mb-2">Ready to start a project?</h4>
-          <p className="text-slate-400">I'm currently available for freelance work and exciting new opportunities.</p>
+          <p className="text-slate-400">I&apos;m currently available for freelance work and exciting new opportunities.</p>
         </div>
-        <a href="mailto:stevezuluu@gmail.com" className="shrink-0 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all whitespace-nowrap">Let's Talk →</a>
+        <a href="mailto:stevezuluu@gmail.com" className="shrink-0 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all whitespace-nowrap">Let&apos;s Talk →</a>
       </div>
     </div>
   );
