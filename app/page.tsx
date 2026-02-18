@@ -94,7 +94,10 @@ export default function Portfolio() {
                 <span className="text-xs text-slate-300 font-medium">Available for work</span>
               </div>
             </div>
-            <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-white via-cyan-200 to-blue-400 bg-clip-text text-transparent">Steve Ronald</h1>
+           <h1 className="text-6xl font-bold mb-4 text-cyan-400">
+  Steve Ronald
+</h1>
+
             <p className="text-2xl text-cyan-400 mb-4 font-semibold">Full-Stack Developer</p>
             <p className="text-xl text-slate-300 mb-8 max-w-2xl">
               Crafting exceptional digital experiences with modern web technologies. Specializing in e-commerce solutions and custom web applications.
@@ -152,12 +155,13 @@ export default function Portfolio() {
               </div>
             </div>
             <div>
-              <h3 className="text-3xl font-bold mb-6">
+   <h3 className="text-3xl font-bold mb-6">
   I build things for the{" "}
-  <span className="inline-block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+  <span className="gradient-text">
     web.
   </span>
 </h3>
+
 
               <div className="space-y-4 text-slate-400 text-lg leading-relaxed">
                 <p>I&apos;m a passionate full-stack developer with a focus on building modern, responsive web applications that drive real business results. I specialize in crafting seamless digital experiences from concept to deployment.</p>
