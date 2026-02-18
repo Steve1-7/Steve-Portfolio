@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("about");
@@ -12,8 +13,6 @@ export default function Portfolio() {
       {/* ── NAVIGATION ── */}
       <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-800">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-
-          {/* Logo */}
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-xl font-bold overflow-hidden border-2 border-cyan-400">
               SR
@@ -21,7 +20,6 @@ export default function Portfolio() {
             <span className="text-lg font-semibold">Steve Ronald</span>
           </div>
 
-          {/* Desktop Links */}
           <div className="hidden md:flex gap-6">
             {["About", "Projects", "Skills", "Contact"].map((item) => (
               <a
@@ -37,7 +35,6 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Mobile Hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 rounded-lg border border-slate-700 hover:border-cyan-400/50 transition-all"
@@ -49,7 +46,6 @@ export default function Portfolio() {
           </button>
         </div>
 
-        {/* Mobile Dropdown */}
         <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
           <div className="px-6 pb-6 pt-3 flex flex-col gap-2 border-t border-slate-800 bg-slate-900/98">
             {[
@@ -61,10 +57,7 @@ export default function Portfolio() {
               <a
                 key={item.label}
                 href={item.href}
-                onClick={() => {
-                  setActiveSection(item.label.toLowerCase());
-                  setMenuOpen(false);
-                }}
+                onClick={() => { setActiveSection(item.label.toLowerCase()); setMenuOpen(false); }}
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                   activeSection === item.label.toLowerCase()
                     ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/30"
@@ -73,26 +66,13 @@ export default function Portfolio() {
               >
                 <span className="text-xl">{item.icon}</span>
                 <span className="font-medium">{item.label}</span>
-                {activeSection === item.label.toLowerCase() && (
-                  <span className="ml-auto w-2 h-2 bg-cyan-400 rounded-full" />
-                )}
+                {activeSection === item.label.toLowerCase() && <span className="ml-auto w-2 h-2 bg-cyan-400 rounded-full" />}
               </a>
             ))}
-
-            {/* Social Row */}
             <div className="flex gap-3 mt-3 pt-4 border-t border-slate-800">
-              <a href="https://github.com/Steve1-7" target="_blank" rel="noopener noreferrer"
-                className="flex-1 text-center py-2.5 rounded-xl border border-slate-700 text-slate-400 hover:border-cyan-400/50 hover:text-cyan-400 text-sm font-medium transition-all">
-                GitHub
-              </a>
-              <a href="https://www.linkedin.com/in/steve-ronald1710s/" target="_blank" rel="noopener noreferrer"
-                className="flex-1 text-center py-2.5 rounded-xl border border-slate-700 text-slate-400 hover:border-cyan-400/50 hover:text-cyan-400 text-sm font-medium transition-all">
-                LinkedIn
-              </a>
-              <a href="mailto:stevezuluu@gmail.com"
-                className="flex-1 text-center py-2.5 rounded-xl border border-slate-700 text-slate-400 hover:border-cyan-400/50 hover:text-cyan-400 text-sm font-medium transition-all">
-                Email
-              </a>
+              <a href="https://github.com/Steve1-7" target="_blank" rel="noopener noreferrer" className="flex-1 text-center py-2.5 rounded-xl border border-slate-700 text-slate-400 hover:border-cyan-400/50 hover:text-cyan-400 text-sm font-medium transition-all">GitHub</a>
+              <a href="https://www.linkedin.com/in/steve-ronald1710s/" target="_blank" rel="noopener noreferrer" className="flex-1 text-center py-2.5 rounded-xl border border-slate-700 text-slate-400 hover:border-cyan-400/50 hover:text-cyan-400 text-sm font-medium transition-all">LinkedIn</a>
+              <a href="mailto:stevezuluu@gmail.com" className="flex-1 text-center py-2.5 rounded-xl border border-slate-700 text-slate-400 hover:border-cyan-400/50 hover:text-cyan-400 text-sm font-medium transition-all">Email</a>
             </div>
           </div>
         </div>
@@ -107,7 +87,7 @@ export default function Portfolio() {
               <div className="absolute w-64 h-64 rounded-full border-2 border-dashed border-cyan-400/50 animate-spin" style={{ animationDuration: "12s" }} />
               <div className="absolute w-56 h-56 rounded-full bg-cyan-500/10 blur-md" />
               <div className="relative w-52 h-52 rounded-full overflow-hidden border-4 border-cyan-400 shadow-[0_0_40px_rgba(56,189,248,0.5)] z-10">
-                <img src="https://i.ibb.co/5gRLQG7C/Whats-App-Image-2025-01-08-at-10-16-10-0b7c5513.jpg" alt="Steve Ronald" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <Image src="https://i.ibb.co/5gRLQG7C/Whats-App-Image-2025-01-08-at-10-16-10-0b7c5513.jpg" alt="Steve Ronald" fill className="object-cover hover:scale-105 transition-transform duration-300" unoptimized />
               </div>
               <div className="absolute -bottom-4 z-20 bg-slate-900 border border-slate-700 rounded-full px-4 py-1.5 flex items-center gap-2 shadow-lg">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
@@ -116,7 +96,9 @@ export default function Portfolio() {
             </div>
             <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-white via-cyan-200 to-blue-400 bg-clip-text text-transparent">Steve Ronald</h1>
             <p className="text-2xl text-cyan-400 mb-4 font-semibold">Full-Stack Developer</p>
-            <p className="text-xl text-slate-300 mb-8 max-w-2xl">Crafting exceptional digital experiences with modern web technologies. Specializing in e-commerce solutions and custom web applications.</p>
+            <p className="text-xl text-slate-300 mb-8 max-w-2xl">
+              Crafting exceptional digital experiences with modern web technologies. Specializing in e-commerce solutions and custom web applications.
+            </p>
             <div className="flex gap-4 mb-8">
               <a href="#contact" className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all">Get In Touch</a>
               <a href="#projects" className="px-8 py-3 border border-slate-600 rounded-lg font-semibold hover:border-cyan-400 hover:text-cyan-400 transition-all">View Work</a>
@@ -147,7 +129,7 @@ export default function Portfolio() {
                 <div className="absolute w-64 h-64 rounded-full border-2 border-dashed border-cyan-400/50 animate-spin" style={{ animationDuration: "12s" }} />
                 <div className="absolute w-56 h-56 rounded-full bg-cyan-500/10 blur-md" />
                 <div className="relative w-52 h-52 rounded-full overflow-hidden border-4 border-cyan-400 shadow-[0_0_40px_rgba(56,189,248,0.5)] z-10">
-                  <img src="https://i.ibb.co/1GVHNhmj/hyb.jpg" alt="Steve Ronald" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                  <Image src="https://i.ibb.co/1GVHNhmj/hyb.jpg" alt="Steve Ronald" fill className="object-cover hover:scale-105 transition-transform duration-300" unoptimized />
                 </div>
                 <div className="absolute -bottom-4 z-20 bg-slate-900 border border-slate-700 rounded-full px-4 py-1.5 flex items-center gap-2 shadow-lg">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
@@ -170,11 +152,14 @@ export default function Portfolio() {
               </div>
             </div>
             <div>
-              <h3 className="text-3xl font-bold mb-6">I build things for the <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">web.</span></h3>
+              <h3 className="text-3xl font-bold mb-6">
+                I build things for the{" "}
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">web.</span>
+              </h3>
               <div className="space-y-4 text-slate-400 text-lg leading-relaxed">
-                <p>I'm a passionate full-stack developer with a focus on building modern, responsive web applications that drive real business results. I specialize in crafting seamless digital experiences from concept to deployment.</p>
-                <p>With deep expertise in both frontend and backend technologies, I've successfully delivered e-commerce platforms, corporate websites, and developer tools for clients across various industries.</p>
-                <p>When I'm not coding, I'm constantly learning new technologies and pushing the boundaries of what's possible on the web.</p>
+                <p>I&apos;m a passionate full-stack developer with a focus on building modern, responsive web applications that drive real business results. I specialize in crafting seamless digital experiences from concept to deployment.</p>
+                <p>With deep expertise in both frontend and backend technologies, I&apos;ve successfully delivered e-commerce platforms, corporate websites, and developer tools for clients across various industries.</p>
+                <p>When I&apos;m not coding, I&apos;m constantly learning new technologies and pushing the boundaries of what&apos;s possible on the web.</p>
               </div>
               <div className="flex gap-4 mt-8">
                 <a href="mailto:stevezuluu@gmail.com" className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-semibold text-sm hover:shadow-lg hover:shadow-cyan-500/30 transition-all">Hire Me</a>
@@ -198,7 +183,9 @@ export default function Portfolio() {
             <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">My Work</p>
             <h2 className="text-5xl font-bold mb-6">Featured Projects</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full mb-6" />
-            <p className="text-slate-400 max-w-2xl mx-auto text-lg">A showcase of my real-world projects — from full e-commerce platforms to corporate websites, design agencies, and developer tools.</p>
+            <p className="text-slate-400 max-w-2xl mx-auto text-lg">
+              A showcase of my real-world projects &mdash; from full e-commerce platforms to corporate websites, design agencies, and developer tools.
+            </p>
           </div>
 
           {/* Large Cards */}
@@ -206,7 +193,7 @@ export default function Portfolio() {
             <div className="group relative bg-slate-800/60 rounded-3xl border border-slate-700 overflow-hidden hover:border-amber-500/50 transition-all duration-500">
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-orange-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative h-64 bg-slate-900 overflow-hidden">
-                <iframe loading="lazy" src="http://stevemediaco.unaux.com" className="w-full h-full border-0" style={{ width: "133%", height: "133%", transform: "scale(0.75)", transformOrigin: "top left" }} title="King's Barbershop" />
+                <iframe loading="lazy" src="http://stevemediaco.unaux.com" className="w-full h-full border-0" style={{ width: "133%", height: "133%", transform: "scale(0.75)", transformOrigin: "top left" }} title="Kings Barbershop" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-800/80 to-transparent pointer-events-none" />
                 <div className="absolute top-4 left-4 flex gap-2">
                   <span className="px-3 py-1 bg-amber-500/90 text-slate-900 text-xs font-bold rounded-full">✂️ Barbershop</span>
@@ -216,13 +203,13 @@ export default function Portfolio() {
               </div>
               <div className="relative z-10 p-8">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-2xl font-bold">King's Barbershop</h3>
+                  <h3 className="text-2xl font-bold">King&apos;s Barbershop</h3>
                   <div className="flex items-center gap-1.5 px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full">
                     <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                     <span className="text-green-400 text-xs font-medium">Live</span>
                   </div>
                 </div>
-                <p className="text-slate-400 mb-6 leading-relaxed">A full-featured barbershop website with an integrated e-commerce store. Customers can browse services, book appointments online, shop for grooming products, and manage their orders — all in one seamless platform.</p>
+                <p className="text-slate-400 mb-6 leading-relaxed">A full-featured barbershop website with an integrated e-commerce store. Customers can browse services, book appointments online, shop for grooming products, and manage their orders &mdash; all in one seamless platform.</p>
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   {["Online Booking", "Product Store", "Payment Integration", "Service Listings"].map((f) => (
                     <div key={f} className="flex items-center gap-2 text-sm text-slate-300"><div className="w-1.5 h-1.5 bg-amber-400 rounded-full shrink-0" />{f}</div>
@@ -259,7 +246,7 @@ export default function Portfolio() {
                     <span className="text-green-400 text-xs font-medium">Live</span>
                   </div>
                 </div>
-                <p className="text-slate-400 mb-6 leading-relaxed">A premium e-commerce platform for custom woodwork products. Showcases handcrafted furniture and décor with a product gallery, custom quote requests, client portfolio, and integrated online payments.</p>
+                <p className="text-slate-400 mb-6 leading-relaxed">A premium e-commerce platform for custom woodwork products. Showcases handcrafted furniture and d&eacute;cor with a product gallery, custom quote requests, client portfolio, and integrated online payments.</p>
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   {["Product Gallery", "Custom Quotes", "E-Commerce Store", "Portfolio Showcase"].map((f) => (
                     <div key={f} className="flex items-center gap-2 text-sm text-slate-300"><div className="w-1.5 h-1.5 bg-emerald-400 rounded-full shrink-0" />{f}</div>
@@ -312,7 +299,7 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Small Cards Row */}
+          {/* Small Cards */}
           <div className="grid md:grid-cols-2 gap-6">
             <div className="group relative bg-slate-800/60 rounded-2xl border border-slate-700 overflow-hidden hover:border-blue-500/50 transition-all duration-500 flex">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -356,7 +343,7 @@ export default function Portfolio() {
                   </div>
                 </div>
                 <span className="inline-block mb-3 px-2 py-0.5 bg-yellow-500/20 text-yellow-400 text-xs rounded-full border border-yellow-500/30">🚧 Under Development</span>
-                <p className="text-slate-400 text-sm mb-4 leading-relaxed">Career tracking tool for developers — job applications, skill assessments, and interview prep.</p>
+                <p className="text-slate-400 text-sm mb-4 leading-relaxed">Career tracking tool for developers &mdash; job applications, skill assessments, and interview prep.</p>
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {["Next.js", "TypeScript", "Prisma", "tRPC"].map((tech) => (
                     <span key={tech} className="px-2 py-0.5 bg-slate-700/80 text-slate-300 rounded-full text-xs">{tech}</span>
@@ -381,9 +368,9 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-20">
             <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">What I Know</p>
-            <h2 className="text-5xl font-bold mb-6">Skills & Technologies</h2>
+            <h2 className="text-5xl font-bold mb-6">Skills &amp; Technologies</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full mb-6" />
-            <p className="text-slate-400 max-w-2xl mx-auto text-lg">A full toolkit spanning frontend, backend, databases, design, and digital marketing — built through real-world projects and self-driven learning.</p>
+            <p className="text-slate-400 max-w-2xl mx-auto text-lg">A full toolkit spanning frontend, backend, databases, design, and digital marketing &mdash; built through real-world projects and self-driven learning.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -394,7 +381,7 @@ export default function Portfolio() {
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-2xl shadow-lg shadow-cyan-500/20">🖥️</div>
                   <div>
                     <h3 className="text-2xl font-bold">Frontend</h3>
-                    <p className="text-slate-400 text-sm">UI & User Experience</p>
+                    <p className="text-slate-400 text-sm">UI &amp; User Experience</p>
                   </div>
                   <span className="ml-auto px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs rounded-full font-medium">8 Skills</span>
                 </div>
@@ -430,8 +417,8 @@ export default function Portfolio() {
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/20">⚙️</div>
                   <div>
-                    <h3 className="text-2xl font-bold">Backend & Databases</h3>
-                    <p className="text-slate-400 text-sm">Server & Data Layer</p>
+                    <h3 className="text-2xl font-bold">Backend &amp; Databases</h3>
+                    <p className="text-slate-400 text-sm">Server &amp; Data Layer</p>
                   </div>
                   <span className="ml-auto px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs rounded-full font-medium">6 Skills</span>
                 </div>
@@ -526,9 +513,9 @@ export default function Portfolio() {
       <section id="contact" className="py-28 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">Get In Touch</p>
-          <h2 className="text-5xl font-bold mb-6">Let's Work Together</h2>
+          <h2 className="text-5xl font-bold mb-6">Let&apos;s Work Together</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full mb-8" />
-          <p className="text-xl text-slate-400 mb-10">Have a project in mind? I'd love to hear about it. Drop me a line and let's create something amazing together.</p>
+          <p className="text-xl text-slate-400 mb-10">Have a project in mind? I&apos;d love to hear about it. Drop me a line and let&apos;s create something amazing together.</p>
           <a href="mailto:stevezuluu@gmail.com" className="inline-block px-10 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-semibold text-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all mb-16">Send Message</a>
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -549,11 +536,10 @@ export default function Portfolio() {
       {/* ── FOOTER ── */}
       <footer className="py-8 px-6 border-t border-slate-800">
         <div className="max-w-6xl mx-auto text-center text-slate-400">
-          <p className="mb-2">© 2025 Steve Ronald. Built with Next.js & Tailwind CSS</p>
+          <p className="mb-2">&copy; 2025 Steve Ronald. Built with Next.js &amp; Tailwind CSS</p>
           <p className="text-sm">Crafted with ❤️ and lots of ☕ | Open to new opportunities</p>
         </div>
       </footer>
-
     </div>
   );
 }
@@ -567,12 +553,12 @@ function CareerTimeline() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const timelineData = [
-    { date: "High School", title: "Early Creative Spark", icon: "💡", color: "from-yellow-400 to-orange-500", border: "border-yellow-500/50", glow: "shadow-yellow-500/20", accent: "text-yellow-400", bg: "bg-yellow-500/10", text: "Discovered creativity and curiosity for computers using school systems before owning one personally.", skills: ["Curiosity", "Problem Solving", "Creative Thinking"] },
-    { date: "2019", title: "Self-Taught Digital Foundations", icon: "🖥️", color: "from-cyan-400 to-blue-500", border: "border-cyan-500/50", glow: "shadow-cyan-500/20", accent: "text-cyan-400", bg: "bg-cyan-500/10", text: "Independently learned graphic design, digital marketing, and 3D modelling through online platforms.", skills: ["Graphic Design", "Digital Marketing", "3D Modelling"] },
-    { date: "2019 – 2020", title: "Greenland Projects", icon: "💼", color: "from-green-400 to-emerald-500", border: "border-green-500/50", glow: "shadow-green-500/20", accent: "text-green-400", bg: "bg-green-500/10", text: "Digital Marketer and Assistant Web Manager until closure during COVID-19 lockdown.", skills: ["Web Management", "Digital Marketing", "Client Work"] },
-    { date: "2021 – 2023", title: "Saseka Woodworks", icon: "🪵", color: "from-amber-400 to-orange-500", border: "border-amber-500/50", glow: "shadow-amber-500/20", accent: "text-amber-400", bg: "bg-amber-500/10", text: "Part-time Graphic Designer and Web Manager, strengthening brand identity and online presence.", skills: ["Brand Identity", "Web Design", "Content Creation"] },
-    { date: "2024 – 2025", title: "Shagary Petroleum", icon: "⚙️", color: "from-purple-400 to-pink-500", border: "border-purple-500/50", glow: "shadow-purple-500/20", accent: "text-purple-400", bg: "bg-purple-500/10", text: "Web Developer and Graphic Designer, delivering design-led digital solutions.", skills: ["Web Development", "UI Design", "Corporate Branding"] },
-    { date: "Present", title: "Freelance Full-Stack Developer", icon: "🚀", color: "from-rose-400 to-red-500", border: "border-rose-500/50", glow: "shadow-rose-500/20", accent: "text-rose-400", bg: "bg-rose-500/10", text: "Building full-stack, AI-driven, and data-powered applications while expanding technical mastery.", skills: ["Full-Stack Dev", "AI Integration", "E-Commerce"] },
+    { date: "High School", title: "Early Creative Spark", icon: "💡", color: "from-yellow-400 to-orange-500", border: "border-yellow-500/50", accent: "text-yellow-400", bg: "bg-yellow-500/10", text: "Discovered creativity and curiosity for computers using school systems before owning one personally.", skills: ["Curiosity", "Problem Solving", "Creative Thinking"] },
+    { date: "2019", title: "Self-Taught Digital Foundations", icon: "🖥️", color: "from-cyan-400 to-blue-500", border: "border-cyan-500/50", accent: "text-cyan-400", bg: "bg-cyan-500/10", text: "Independently learned graphic design, digital marketing, and 3D modelling through online platforms.", skills: ["Graphic Design", "Digital Marketing", "3D Modelling"] },
+    { date: "2019 – 2020", title: "Greenland Projects", icon: "💼", color: "from-green-400 to-emerald-500", border: "border-green-500/50", accent: "text-green-400", bg: "bg-green-500/10", text: "Digital Marketer and Assistant Web Manager until closure during COVID-19 lockdown.", skills: ["Web Management", "Digital Marketing", "Client Work"] },
+    { date: "2021 – 2023", title: "Saseka Woodworks", icon: "🪵", color: "from-amber-400 to-orange-500", border: "border-amber-500/50", accent: "text-amber-400", bg: "bg-amber-500/10", text: "Part-time Graphic Designer and Web Manager, strengthening brand identity and online presence.", skills: ["Brand Identity", "Web Design", "Content Creation"] },
+    { date: "2024 – 2025", title: "Shagary Petroleum", icon: "⚙️", color: "from-purple-400 to-pink-500", border: "border-purple-500/50", accent: "text-purple-400", bg: "bg-purple-500/10", text: "Web Developer and Graphic Designer, delivering design-led digital solutions.", skills: ["Web Development", "UI Design", "Corporate Branding"] },
+    { date: "Present", title: "Freelance Full-Stack Developer", icon: "🚀", color: "from-rose-400 to-red-500", border: "border-rose-500/50", accent: "text-rose-400", bg: "bg-rose-500/10", text: "Building full-stack, AI-driven, and data-powered applications while expanding technical mastery.", skills: ["Full-Stack Dev", "AI Integration", "E-Commerce"] },
   ];
 
   return (
@@ -616,7 +602,7 @@ function CareerTimeline() {
                   <div className={`overflow-hidden transition-all duration-500 ${activeIndex === index ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
                     <div className={`mt-2 p-4 rounded-xl ${item.bg} border ${item.border}`}>
                       <p className={`text-sm font-semibold ${item.accent} mb-2`}>Key Takeaway</p>
-                      <p className="text-slate-300 text-sm">Every step in this journey built the foundation for the next — shaping the developer, designer, and problem solver I am today.</p>
+                      <p className="text-slate-300 text-sm">Every step in this journey built the foundation for the next &mdash; shaping the developer, designer, and problem solver I am today.</p>
                     </div>
                   </div>
                   <button className={`mt-3 flex items-center gap-1 text-xs font-medium ${item.accent}`}>
@@ -676,7 +662,7 @@ function CoreStrengths() {
         <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">What I Bring</p>
         <h3 className="text-4xl font-bold mb-4">My Core Strengths</h3>
         <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full mb-6" />
-        <p className="text-slate-400 mt-4 max-w-xl mx-auto">A multidisciplinary skill set spanning development, design, and digital growth — built to deliver complete solutions from concept to launch.</p>
+        <p className="text-slate-400 mt-4 max-w-xl mx-auto">A multidisciplinary skill set spanning development, design, and digital growth &mdash; built to deliver complete solutions from concept to launch.</p>
       </div>
       <div className="flex justify-center gap-3 mb-10 flex-wrap">
         {filters.map((f) => (
@@ -746,9 +732,9 @@ function CoreStrengths() {
       <div className="mt-10 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 border border-slate-700 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <h4 className="text-2xl font-bold mb-2">Ready to start a project?</h4>
-          <p className="text-slate-400">I'm currently available for freelance work and exciting new opportunities.</p>
+          <p className="text-slate-400">I&apos;m currently available for freelance work and exciting new opportunities.</p>
         </div>
-        <a href="mailto:stevezuluu@gmail.com" className="shrink-0 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all whitespace-nowrap">Let's Talk →</a>
+        <a href="mailto:stevezuluu@gmail.com" className="shrink-0 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all whitespace-nowrap">Let&apos;s Talk →</a>
       </div>
     </div>
   );
