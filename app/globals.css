@@ -37,3 +37,8 @@ body {
 .animate-glow {
   animation: softGlow 6s ease-in-out infinite;
 }
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
